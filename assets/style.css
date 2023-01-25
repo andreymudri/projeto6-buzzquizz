@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    font-family: 'Roboto',;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: absolute;
+    width: 100vw;
+    height: 69px;
+    left: 0px;
+    top: 0px;
+    background: #EC362D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 37px;
+    font-weight: 700;
+}
+.corpo {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 75px;
+}
+.listaquizz {
+    font-size: 20px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.listaquizz div {
+    display:flex;
+    width: 341px;
+    height:181px;
+    border-radius: 5px;
+    background-color: coral;
+    margin: 12px;
+}
