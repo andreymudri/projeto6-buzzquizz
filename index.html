@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,64 +9,67 @@
     <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-    <header><p>Buzzquizz</p></header>
-    
-        <div class="corpo"> 
-          
-        <div class="quizzlocal"> 
-                <div class="criarquizz"> 
+    <header>
+        <p>Buzzquizz</p>
+    </header>
+
+    <div class="corpo">
+
+        <div class="quizzlocal">
+            <div class="criarquizz">
                 <p>Você não criou nenhum quizz ainda :(</p>
                 <div class="botaocriarquizz" onclick="criarquizz()">Criar Quizz</div>
-        </div>
-        
+            </div>
 
-         <div class="quizzCriados"> 
-                 <p>Seus Quizzes <ion-button ><ion-icon name="add-circle"></ion-icon></ion-button></p>
-            <div class="quadros">     
+
+            <div class="quizzCriados">
+                <p>Seus Quizzes <ion-button><ion-icon name="add-circle"></ion-icon></ion-button></p>
+                <div class="quadros">
+                </div>
+
+            </div>
         </div>
-            
-        </div>
-     </div>
         <div class="todosquizz">Todos os Quizzes
             <div id="listaquizz">
             </div>
         </div>
-   
 
-    
-   
-            <div class="tela3 InfoBasica">
+
+
+
+        <div class="tela3 InfoBasica">
             <h1>Comece pelo começo</h1>
             <div class="infos">
-                <input  class="input titulo" type="text" value="" placeholder="Título do seu quizz">
-                <input  class="input imagem" type="text" value="" placeholder="URL da imagem do seu quizz">
-                <input  class="input qtdPerguntas" type="text" value="" placeholder="Quantidade de perguntas do quizz">
-                <input  class="input niveis" type="text" value="" placeholder="Quantidade de níveis do quizz">
+                <input class="input titulo" type="text" value="" placeholder="Título do seu quizz">
+                <input class="input imagem" type="text" value="" placeholder="URL da imagem do seu quizz">
+                <input class="input qtdPerguntas" type="text" value="" placeholder="Quantidade de perguntas do quizz">
+                <input class="input niveis" type="text" value="" placeholder="Quantidade de níveis do quizz">
             </div>
             <button onclick="criarPerguntas()">Prosseguir para criar perguntas</button>
         </div>
-    
-    
+
+
 
         <div class="tela3 Perguntas escondido">
             <h1>Crie suas perguntas</h1>
             <div class="perguntas aberto">
                 <h2>Pergunta 1</h2>
-                <input  class="input pergunta" type="text" value="" placeholder="Texto da pergunta">
-                <input  class="input fundo" type="text" value="" placeholder="Cor de fundo da pergunta">
+                <input class="input pergunta" type="text" value="" placeholder="Texto da pergunta">
+                <input class="input fundo" type="text" value="" placeholder="Cor de fundo da pergunta">
                 <h2>Resposta correta</h2>
-                <input  class="input resposta" type="text" value="" placeholder="Resposta correta">
-                <input  class="input urlimagem" type="text" value="" placeholder="URL da imagem">
+                <input class="input resposta" type="text" value="" placeholder="Resposta correta">
+                <input class="input urlimagem" type="text" value="" placeholder="URL da imagem">
                 <h2>Respostas Incorretas</h2>
-                <input  class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 1">
-                <input  class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 1">
+                <input class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 1">
+                <input class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 1">
 
-                <input  class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 2">
-                <input  class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 2">
+                <input class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 2">
+                <input class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 2">
 
-                <input  class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 3">
-                <input  class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 3">
+                <input class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 3">
+                <input class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 3">
 
             </div>
 
@@ -81,12 +85,101 @@
 
         </div>
 
-    
+
+        <div class="tela2" style="display:none">
+            <div class="imagemquizz">
+                <div>
+                    <h1 class="titulo">O quão Potterhead é você?</h1>
+                </div>
+            </div>
+
+            <div class=pergunta>
+                <div class="textopergunta">
+                    <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
+                </div>
+
+                <div class="respostas">
+                    <div class="resposta">
+                        <img
+                            src="https://2.bp.blogspot.com/-ksnf57YuvzU/Vunk6mBAOOI/AAAAAAAAGok/EvqvPQPwu6QXWJxmXJb2kLTaJCXmENuBw/s1600/Hedwig_WB_F3_HedwigInTheForest_Still_100615_Port.jpg">
+                        <p>Edwiges</p>
+                    </div>
+
+                    <div class="resposta">
+                        <img
+                            src="https://2.bp.blogspot.com/-ksnf57YuvzU/Vunk6mBAOOI/AAAAAAAAGok/EvqvPQPwu6QXWJxmXJb2kLTaJCXmENuBw/s1600/Hedwig_WB_F3_HedwigInTheForest_Still_100615_Port.jpg">
+                        <p>Edwiges</p>
+                    </div>
+
+                    <div class="resposta">
+                        <img
+                            src="https://2.bp.blogspot.com/-ksnf57YuvzU/Vunk6mBAOOI/AAAAAAAAGok/EvqvPQPwu6QXWJxmXJb2kLTaJCXmENuBw/s1600/Hedwig_WB_F3_HedwigInTheForest_Still_100615_Port.jpg">
+                        <p>Edwiges</p>
+                    </div>
+
+                    <div class="resposta">
+                        <img
+                            src="https://2.bp.blogspot.com/-ksnf57YuvzU/Vunk6mBAOOI/AAAAAAAAGok/EvqvPQPwu6QXWJxmXJb2kLTaJCXmENuBw/s1600/Hedwig_WB_F3_HedwigInTheForest_Still_100615_Port.jpg">
+                        <p>Edwiges</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class=pergunta>
+                <div class="textopergunta">
+                    <p>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</p>
+                </div>
+
+                <div class="respostas">
+                    <div class="resposta">
+                        <img
+                            src="https://www.opovo.com.br/_midias/jpg/2021/09/24/818x460/1_harry_potter_e_a_pedra_filosofal-17117216.jpg">
+                        <p>Edwiges</p>
+                    </div>
+                    <div class="resposta">
+                        <img
+                            src="https://www.opovo.com.br/_midias/jpg/2021/09/24/818x460/1_harry_potter_e_a_pedra_filosofal-17117216.jpg">
+                        <p>Edwiges</p>
+                    </div>
+                    <div class="resposta">
+                        <img
+                            src="https://www.opovo.com.br/_midias/jpg/2021/09/24/818x460/1_harry_potter_e_a_pedra_filosofal-17117216.jpg">
+                        <p>Edwiges</p>
+                    </div>
+                    <div class="resposta">
+                        <img
+                            src="https://www.opovo.com.br/_midias/jpg/2021/09/24/818x460/1_harry_potter_e_a_pedra_filosofal-17117216.jpg">
+                        <p>Edwiges</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="resultado">
+                <div class="textoresultado">
+                    <h3><span>88%</span> de acerto: <span>Você é praticamente um aluno de Hogwarts!</span></h3>
+                </div>
+                <img
+                    src="https://www.opovo.com.br/_midias/jpg/2021/09/24/818x460/1_harry_potter_e_a_pedra_filosofal-17117216.jpg">
+                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
+                    abaixo
+                    para usar o vira-tempo e reiniciar este teste.</p>
+            </div>
+
+            <button class="btnreiniciar">Reiniciar Quizz</button>
+            <button class="btnhome">Voltar pra home</button>
+
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>    
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./assets/script.js"></script>
 </body>
+
 </html>

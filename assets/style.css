@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
     background-color: #FAFAFA;
     ;
 }
-header{
+
+header {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     position: absolute;
     width: 100vw;
     height: 69px;
@@ -19,32 +20,38 @@ header{
     font-size: 37px;
     font-weight: 700;
 }
-.corpo{
-    display:flex;
+
+.corpo {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.botaocriarquizz{
-    
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 21px;
-line-height: 25px;
-display: flex;
-align-items: center;
-text-align: center;
 
-color: #EC362D;
+.botaocriarquizz {
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #EC362D;
 }
-.quizzlocal { /* Desktop 1  próprio quizz*/
+
+.quizzlocal {
+    /* Desktop 1  próprio quizz*/
     display: flex;
     width: 100vw;
-    height: 400px;     
-    MARGIN-top: 145px;    
+    height: 400px;
+    MARGIN-top: 145px;
     justify-content: center;
 }
-.criarquizz { /* botão de criar o proprio quizz da tela 1*/ 
+
+.criarquizz {
+    /* botão de criar o proprio quizz da tela 1*/
     width: 1051px;
     height: 400px;
     font-style: normal;
@@ -55,32 +62,35 @@ color: #EC362D;
     align-items: center;
     text-align: center;
     justify-content: center;
-    
+
     flex-direction: column;
     color: #B9B9B9;
     background-color: #FAFAFA;
     border: 1px dashed #D5D5D5;
-    border-radius: 5px;  
-    DISPLAY:NONE;      
+    border-radius: 5px;
+    DISPLAY: NONE;
 
 }
-.quizzCriados{
-    width: 1051px;    
-    display:flex;
+
+.quizzCriados {
+    width: 1051px;
+    display: flex;
     flex-direction: column;
-    align-items: start;    
+    align-items: start;
     justify-content: center;
     text-align: justify;
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
 }
+
 .quizzCriados p {
     display: flex;
     align-items: center;
-    }
+}
+
 .quadros {
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 1051px;
     font-style: normal;
@@ -93,37 +103,43 @@ color: #EC362D;
     justify-content: center;
 }
 
-.quadros div { /* div quizz individual*/
+.quadros div {
+    /* div quizz individual*/
 
     width: 341px;
-    height:181px;
+    height: 181px;
     margin: 12px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(image.png);
     border-radius: 5px;
 
 }
- ion-button ion-icon {
-    color:#EC362D;
+
+ion-button ion-icon {
+    color: #EC362D;
     height: 30px;
     width: 30px;
 }
 
 
-#listaquizz { /*Quizz da API - Tela 1 e 2*/
+#listaquizz {
+    /*Quizz da API - Tela 1 e 2*/
     width: 80vw;
     font-size: 20px;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    color:white;    
+    color: white;
     font-weight: 400;
     font-size: 19px;
     line-height: 22px;
 }
-.todosquizz { /*Quizz da API - Tela 1 e 2*/    
+
+.todosquizz {
+    /*Quizz da API - Tela 1 e 2*/
     font-Weight: 700;
     font-Size: 20px;
 }
+
 #listaquizz div {
     width: 341px;
     height: 181px;
@@ -131,42 +147,46 @@ color: #EC362D;
     overflow: hidden;
     border-radius: 5px;
     position: relative;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
-.shadow {    
+
+.shadow {
     width: 341px;
     height: 181px;
-    position: relative;  
+    position: relative;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
 
 }
+
 #listaquizz div img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position:absolute;
+    position: absolute;
     box-sizing: border-box;
     z-index: -1;
     border: 5px;
 }
-.title {    
+
+.title {
     width: 341px;
     height: 181px;
     font-weight: bold;
     overflow: visible;
     color: red;
 }
-      
-.botaocriarquizz { /* criar Quizz botão da tela 1*/
+
+.botaocriarquizz {
+    /* criar Quizz botão da tela 1*/
     margin-top: 33px;
     width: 151px;
     height: 40px;
     background: #FAFAFA;
     border: 1px dashed #EC362D;
     border-radius: 50px;
-    display: flex;    
+    display: flex;
     align-items: center;
-    text-align: center;  
+    text-align: center;
     justify-content: center;
     font-weight: 400;
     font-size: 21px;
@@ -192,14 +212,14 @@ color: #EC362D;
     color: #000000;
 }
 
-.tela3 div{
+.tela3 div {
     display: flex;
     flex-direction: column;
     width: 600px;
     margin-top: 27px;
     background: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-    
+
 }
 
 .tela3 input {
@@ -250,17 +270,18 @@ color: #EC362D;
     color: #000000;
 }
 
-.InfoBasica{
+.InfoBasica {
     align-items: center;
 }
 
-.InfoBasica div{
+.InfoBasica div {
     height: 256px;
 }
 
-.aberto{
+.aberto {
     min-height: 825px;
 }
+
 .Perguntas .fechado {
     min-height: 74px;
     display: flex;
@@ -269,9 +290,10 @@ color: #EC362D;
     justify-content: space-between;
 }
 
-.Perguntas .fechado h2{
+.Perguntas .fechado h2 {
     margin-top: 0px;
 }
+
 .Perguntas img {
     height: 23px;
     margin-right: 18px;
@@ -283,4 +305,181 @@ color: #EC362D;
 
 .escondido {
     display: none;
+}
+
+
+/* TELA 2*/
+.tela2 {
+    display: block;
+    margin-top: 69px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.tela2 .imagemquizz {
+    width: 100%;
+    height: 227px;
+    background-image: url("https://meups.com.br/wp-content/uploads/2022/11/Hogwarts-Legacy-900x503.jpg");
+    background-size: cover;
+}
+
+.tela2 .imagemquizz>div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.tela2 h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 39px;
+    line-height: 46px;
+    color: #FFFFFF;
+}
+
+.tela2 .pergunta {
+    margin-top: 42px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    width: 759px;
+    height: 676px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 28px 36.5px;
+
+}
+
+.tela2 .textopergunta {
+    width: 100%;
+    height: 138px;
+    background-color: #434CA0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tela2 .textopergunta p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.tela2 .respostas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.tela2 .respostas img {
+    width: 330px;
+    height: 175.2px;
+}
+
+.tela2 .respostas p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    margin: 10px 0px 15px 0px;
+}
+
+.tela2 .resultado {
+    margin-top: 42px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    width: 759px;
+    height: 430px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 18px;
+}
+
+.tela2 .textoresultado {
+    width: 100%;
+    height: 99px;
+    background-color: #EC362D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.tela2 .textoresultado h3 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.tela2 .resultado img {
+    width: 364px;
+    height: 273px;
+}
+
+.tela2 .resultado p {
+    width: 47%;
+    height: 273px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 25px;
+    color: #484848;
+
+}
+
+.tela2 .btnreiniciar {
+    width: 260.38px;
+    height: 52px;
+    background-color: #EC362D;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFF5F4;
+    margin: 57px 0px 16px 0px;
+
+}
+
+.tela2 .btnhome {
+    width: 220px;
+    height: 44px;
+    background-color: transparent;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #818181;
+    margin-bottom: 85px;
+
 }
