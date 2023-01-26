@@ -41,10 +41,19 @@ function renderQuizz(response) {
     Quizzes.innerHTML = '';
     let infodata = response.data; 
     for (let i = 0; i < 6; i++){
-        Quizzes.innerHTML += `<div class="shadow">\n
+        Quizzes.innerHTML += `<div class="shadow" onclick="mostrarQuizz(${infodata[i].id})">\n
         <div><img src="${infodata[i].image}" alt="quizz"></div>\n
         <div class="title"> ${infodata[i].title}</div></div>
     `;
     }
 }
+function mostrarQuizz(id) {
+
+    const url = `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`;
+    const promise = axios.get(url);
+    promise.then(console.log(promise));
+    promise.catch();
+}
+
+
 pegarQuizz();
