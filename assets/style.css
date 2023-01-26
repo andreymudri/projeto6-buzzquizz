@@ -41,8 +41,7 @@ color: #EC362D;
     display: flex;
     width: 100vw;
     height: 400px;     
-    MARGIN-top: 145px;   
-    background-color: aqua;  
+    MARGIN-top: 145px;    
     justify-content: center;
 }
 .criarquizz { /* botão de criar o proprio quizz da tela 1*/ 
@@ -61,9 +60,9 @@ color: #EC362D;
     color: #B9B9B9;
     background-color: #FAFAFA;
     border: 1px dashed #D5D5D5;
-    border-radius: 5px;
-        
-    DISPLAY:NONE;
+    border-radius: 5px;  
+    DISPLAY:NONE;      
+
 }
 .quizzCriados{
     width: 1051px;    
@@ -76,6 +75,10 @@ color: #EC362D;
     font-size: 20px;
     line-height: 23px;
 }
+.quizzCriados p {
+    display: flex;
+    align-items: center;
+    }
 .quadros {
     display:flex;
     flex-direction: column;
@@ -106,25 +109,54 @@ color: #EC362D;
 }
 
 
-.listaquizz { /*Quizz da API - Tela 1 e 2*/
+#listaquizz { /*Quizz da API - Tela 1 e 2*/
     width: 80vw;
     font-size: 20px;
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    color:white;    
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 22px;
 }
-.todosquizz { /*Quizz da API - Tela 1 e 2*/
-    
+.todosquizz { /*Quizz da API - Tela 1 e 2*/    
     font-Weight: 700;
     font-Size: 20px;
 }
-.listaquizz div { /*Quizz da API(div do quizz) - Tela 1 e 2*/
+#listaquizz div {
     width: 341px;
-    height:181px;
+    height: 181px;
     margin: 12px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(image.png);
+    overflow: hidden;
     border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;    
 }
+.shadow {    
+    width: 341px;
+    height: 181px;
+    position: relative;  
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+
+}
+#listaquizz div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position:absolute;
+    box-sizing: border-box;
+    z-index: -1;
+    border: 5px;
+}
+.title {    
+    width: 341px;
+    height: 181px;
+    font-weight: bold;
+    overflow: visible;
+    color: red;
+}
+      
 .botaocriarquizz { /* criar Quizz botão da tela 1*/
     margin-top: 33px;
     width: 151px;

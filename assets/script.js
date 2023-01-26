@@ -1,3 +1,4 @@
+let Quizzes = document.querySelector('#listaquizz');
 function criarPerguntas() {
     let titulo = document.querySelector('.titulo').value;
     let imagem = document.querySelector('.imagem').value;
@@ -26,3 +27,24 @@ function criarNiveis(){
         alert('n pode');
     }
 }
+
+function pegarQuizz() {
+    const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
+        promise.then(renderQuizz);
+        promise.then(console.log('puxei os quizz'));
+        promise.catch(erro);
+}
+function erro(response) {
+    console.log(response);    
+}
+function renderQuizz(response) {
+    Quizzes.innerHTML = '';
+    let infodata = response.data; 
+    for (let i = 0; i < 6; i++){
+        Quizzes.innerHTML += `<div class="shadow">\n
+        <div><img src="${infodata[i].image}" alt="quizz"></div>\n
+        <div class="title"> ${infodata[i].title}</div></div>
+    `;
+    }
+}
+pegarQuizz();
