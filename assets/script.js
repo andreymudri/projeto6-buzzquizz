@@ -47,17 +47,11 @@ function renderQuizz(response) {
     `;
     }
 }
-function mostrarQuizz(id) {
-
-    const url = `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`;
-    const promise = axios.get(url);
-    promise.then(console.log(promise));
-    promise.catch();
-}
-
 
 pegarQuizz();
 
+//tela2
+const tela2 = document.querySelector(".tela2");
 
 //Busca quizz pelo ID
 function buscarQuizz(id) {
@@ -78,7 +72,6 @@ function visualizarQuizz(dados) {
     img.setAttribute("style", `background-image: url(${dados.data.image});
     `);
 
-    const tela2 = document.querySelector(".tela2");
     tela2.style.display = "flex";
 
     dados.data.questions.forEach(gerarPerguntas);
@@ -86,7 +79,7 @@ function visualizarQuizz(dados) {
 
 //Gera um elemento HTML para cada pergunta e adiciona a pagina
 function gerarPerguntas(pergunta) {
-    const tela2 = document.querySelector(".tela2");
+
 
     const novaDiv = document.createElement("div");
 
@@ -105,16 +98,54 @@ function gerarPerguntas(pergunta) {
 
 //Gera as respostas para cada pergunta
 function gerarRespostas(answers) {
+
+    answers.sort(comparador);
+    console.log(answers)
+
     let htmlRespostas = "";
     for (let i = 0; i < answers.length; i++) {
 
-        htmlRespostas += `<div class="resposta">
+        if (answers[i].isCorrectAnswer) {
+
+            htmlRespostas += `<div class="resposta" onclick="respostaClicada(this)">
             <img
-                src=${answers[i].image}>
+                src=${answers[i].image} class="Nselecionado"> 
             <p>${answers[i].text}</p>
         </div>`;
 
+        } else {
+
+            htmlRespostas += `<div class="resposta" onclick="respostaClicada(this)">
+            <img
+                src=${answers[i].image} class="Nselecionado">
+            <p>${answers[i].text}</p>
+        </div>`;
+
+        }
     }
+
     return htmlRespostas;
 }
 
+function comparador() {
+    return Math.random() - 0.5;
+}
+
+//Altera a visualização da alternativa clicada
+function respostaClicada(resposta) {
+
+    if (foiClicada(resposta.parentNode)) return;
+
+    resposta.querySelector("img").classList.remove("Nselecionado")
+    resposta.parentNode.classList.add("respondida");
+
+}
+
+//verifica se a pergunta já foi respondida
+function foiClicada(elemento) {
+    if (elemento.classList.contains("respondida")) {
+        return true;
+    } else {
+        return false;
+    }
+}
