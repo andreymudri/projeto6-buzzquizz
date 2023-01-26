@@ -46,10 +46,11 @@
             <button onclick="criarPerguntas()">Prosseguir para criar perguntas</button>
         </div>
     
+    
 
         <div class="tela3 Perguntas escondido">
             <h1>Crie suas perguntas</h1>
-            <div class="perguntas">
+            <div class="perguntas aberto">
                 <h2>Pergunta 1</h2>
                 <input  class="input pergunta" type="text" value="" placeholder="Texto da pergunta">
                 <input  class="input fundo" type="text" value="" placeholder="Cor de fundo da pergunta">
@@ -57,24 +58,26 @@
                 <input  class="input resposta" type="text" value="" placeholder="Resposta correta">
                 <input  class="input urlimagem" type="text" value="" placeholder="URL da imagem">
                 <h2>Respostas Incorretas</h2>
-                <input  class="input resposta" type="text" value="" placeholder="Resposta incorreta 1">
-                <input  class="input urlimagem" type="text" value="" placeholder="URL da imagem 1">
+                <input  class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 1">
+                <input  class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 1">
 
-                <input  class="input resposta" type="text" value="" placeholder="Resposta incorreta 2">
-                <input  class="input urlimagem" type="text" value="" placeholder="URL da imagem 2">
+                <input  class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 2">
+                <input  class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 2">
 
-                <input  class="input resposta" type="text" value="" placeholder="Resposta incorreta 3">
-                <input  class="input urlimagem" type="text" value="" placeholder="URL da imagem 3">
+                <input  class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 3">
+                <input  class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 3">
 
             </div>
 
-            <div class="perguntas n">
+            <div class="perguntas fechado">
                 <h2>Pergunta 2</h2><img src="imagens/icone.png">
             </div>
 
-            <div class="perguntas n">
+            <div class="perguntas fechado">
                 <h2>Pergunta 3 </h2><img src="imagens/icone.png">
             </div>
+
+            <button onclick="criarNiveis()">Prosseguir para criar níveis</button>
 
         </div>
 
