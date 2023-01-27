@@ -195,6 +195,7 @@ ion-button ion-icon {
 
 }
 
+/*Tela 3 */
 .tela3 {
     display: flex;
     flex-direction: column;
@@ -204,7 +205,6 @@ ion-button ion-icon {
 }
 
 .tela3 h1 {
-    width: 224px;
     height: 27px;
     margin-top: 71px;
     font-weight: 700;
@@ -222,7 +222,7 @@ ion-button ion-icon {
 
 }
 
-.tela3 input {
+.tela3 textarea , .tela3 input  {
     box-sizing: border-box;
     width: 564px;
     height: 46px;
@@ -231,8 +231,10 @@ ion-button ion-icon {
     border-radius: 5px;
     margin-top: 21px;
     margin-bottom: -14px;
+    padding-top: 13px;
     align-self: center;
 
+    font-family: 'Roboto', sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 19px;
@@ -245,7 +247,7 @@ ion-button ion-icon {
 }
 
 .tela3 button {
-    width: 368.86px;
+    width: 369px;
     height: 54px;
     margin-top: 85px;
     margin-bottom: 85px;
@@ -278,12 +280,12 @@ ion-button ion-icon {
     height: 256px;
 }
 
-.aberto {
+.Perguntas .aberto {
     min-height: 825px;
 }
 
-.Perguntas .fechado {
-    min-height: 74px;
+.Perguntas .fechado, .Niveis .fechado {
+    height: 74px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -294,8 +296,9 @@ ion-button ion-icon {
     margin-top: 0px;
 }
 
-.Perguntas img {
+.Perguntas img , .Niveis img {
     height: 23px;
+    width: 26px;
     margin-right: 18px;
 }
 
@@ -306,6 +309,15 @@ ion-button ion-icon {
 .escondido {
     display: none;
 }
+
+.Niveis div{
+    height: 439px;
+}
+.tela3 .descricaoNivel {
+    height: 177px;
+}
+
+
 
 
 /* TELA 2*/
@@ -323,7 +335,7 @@ ion-button ion-icon {
     background-size: cover;
 }
 
-.tela2 .imagemquizz>div {
+.tela2 .imagemquizz div {
     width: 100%;
     height: 100%;
     display: flex;
