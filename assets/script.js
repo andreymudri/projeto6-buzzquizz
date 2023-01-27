@@ -72,10 +72,36 @@ function criarNiveis() {
         (urlimagemIncorreta.startsWith("http://") || urlimagemIncorreta.startsWith("https://"))
         ){
         document.querySelector('.Perguntas').classList.add('escondido');
+
+        let pageNiveis = document.querySelector('.listaNiveis').innerHTML;
+        for (i=2; i<=niveis; i++){
+            pageNiveis += `<div class="fechado">
+        <h2>Nível ${i}</h2><img onclick="abrirNiveis(this)" src="imagens/icone.png">
+    </div>
+    `
+    document.querySelector('.listaNiveis').innerHTML = pageNiveis;
+        }
         document.querySelector('.Niveis').classList.remove('escondido');
     } else {
         alert('n pode');
     }}
+
+function abrirNiveis(clicado){
+    clicado.classList.add('escondido');
+    clicado.parentNode.classList.add('aberto');
+    clicado.parentNode.classList.remove('fechado');
+    let fechar = clicado.parentNode.innerHTML;
+
+    fechar+= `
+    <textarea class="input tituloNivel" type="text" value="" placeholder="Título do nível"></textarea>
+    <textarea class="input porcentagemNivel" type="text" value="" placeholder="% de acerto mínima"></textarea>
+    <textarea class="input urlNivel" type="text" value="" placeholder="URL da imagem do nível"></textarea>
+    <textarea class="input descricaoNivel" type="text" value="" placeholder="Descrição do nível"></textarea>
+    `
+
+    clicado.parentNode.innerHTML = fechar;
+
+}
 
 
 function pegarQuizz() {
