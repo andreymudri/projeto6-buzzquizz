@@ -487,6 +487,10 @@ ion-button ion-icon {
     opacity: 0.3;
 }
 
+.respondida .selecionado {
+    opacity: 1;
+}
+
 .respondida .correta {
     color: #009C22;
 }
