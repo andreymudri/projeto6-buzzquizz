@@ -52,6 +52,7 @@ pegarQuizz();
 
 //tela2
 const tela2 = document.querySelector(".tela2");
+let quizzSelecionado = {};
 
 //Busca quizz pelo ID
 function buscarQuizz(id) {
@@ -65,6 +66,8 @@ function buscarQuizz(id) {
 
 //Insere os dados no HTML
 function visualizarQuizz(dados) {
+    quizzSelecionado = dados.data;
+
     const img = document.querySelector(".imagemquizz");
     const tituloQuizz = img.querySelector(".titulo");
 
@@ -72,23 +75,24 @@ function visualizarQuizz(dados) {
     img.setAttribute("style", `background-image: url(${dados.data.image});
     `);
 
+    dados.data.questions.forEach(gerarPerguntas);
+
     tela2.style.display = "flex";
 
-    dados.data.questions.forEach(gerarPerguntas);
 }
 
 //Gera um elemento HTML para cada pergunta e adiciona a pagina
-function gerarPerguntas(pergunta) {
+function gerarPerguntas(pergunta, index) {
 
 
     const novaDiv = document.createElement("div");
 
     novaDiv.classList.add("pergunta");
-    novaDiv.innerHTML = `<div class="textopergunta" style="background-color:${pergunta.color}">
+    novaDiv.innerHTML = `<div class="textopergunta" style="background-color:${pergunta.color}" >
     <p>${pergunta.title}</p>
 </div>
 
-<div class="respostas">
+<div class="respostas" id="${index}">
     ${gerarRespostas(pergunta.answers)}
 </div>`;
 
@@ -100,7 +104,6 @@ function gerarPerguntas(pergunta) {
 function gerarRespostas(answers) {
 
     answers.sort(comparador);
-    console.log(answers)
 
     let htmlRespostas = "";
     for (let i = 0; i < answers.length; i++) {
@@ -134,10 +137,24 @@ function comparador() {
 //Altera a visualização da alternativa clicada
 function respostaClicada(resposta) {
 
-    if (foiClicada(resposta.parentNode)) return;
+    let divRespostas = resposta.parentNode;
+    if (foiClicada(divRespostas)) return;
 
-    resposta.querySelector("img").classList.remove("Nselecionado")
-    resposta.parentNode.classList.add("respondida");
+    resposta.querySelector("img").classList.remove("Nselecionado");
+
+    resposta.classList.add("selecionado");
+
+    divRespostas.classList.add("respondida");
+
+    let reps = divRespostas.querySelectorAll(".resposta");
+
+    mostrarRespostas(divRespostas.id, reps);
+
+    setTimeout(function () {
+        scrollarPagina(divRespostas.id);
+
+    }, 2000)
+
 
 }
 
@@ -148,4 +165,31 @@ function foiClicada(elemento) {
     } else {
         return false;
     }
+}
+
+//mostra qual são as respostas erradas e a correta
+function mostrarRespostas(index, reps) {
+    let solucao = quizzSelecionado.questions[index].answers;
+
+    for (let i = 0; i < reps.length; i++) {
+        if (solucao[i].isCorrectAnswer) {
+            reps[i].classList.add("correta");
+        } else {
+            reps[i].classList.add("errada");
+        }
+    }
+
+}
+
+function scrollarPagina(id) {
+    let idPergunta = (Number(id) + 1);
+
+    if (quizzSelecionado.questions.length > idPergunta) {
+        let proxPergunta = document.getElementById(idPergunta).parentNode;
+        proxPergunta.scrollIntoView();
+
+    } else {
+        console.log("não tem outra pergunta gerar resultados")
+    }
+
 }
