@@ -1,11 +1,11 @@
 let Quizzes = document.querySelector('#listaquizz');
 
-
+let niveis;
 function criarPerguntas() {
     let titulo = document.querySelector('.titulo').value;
     let imagem = document.querySelector('.imagem').value;
     let qtdPerguntas = document.querySelector('.qtdPerguntas').value;
-    let niveis = document.querySelector('.niveis').value;
+    niveis = document.querySelector('.niveis').value;
 
     if ((titulo.length > 19 && titulo.length < 66) && (imagem.startsWith("http://") || imagem.startsWith("https://")) && Number(qtdPerguntas) > 2 && niveis > 1) {
         document.querySelector('.InfoBasica').classList.add('escondido');
@@ -30,19 +30,6 @@ function criarPerguntas() {
     }
 }
 
-function criarNiveis() {
-    let pergunta = document.querySelector('.pergunta').value;
-    let fundo = document.querySelector('.fundo').value;
-    let resposta = document.querySelector('.resposta').value;
-    let urlimagem = document.querySelector('.urlimagem').value;
-    //let Incorreta = document.querySelector('.resposta .Incorreta').value
-    //console.log(Incorreta);
-    if (pergunta.length > 19 && (fundo.startsWith("#") && fundo.length === 7) && resposta !== "" && (urlimagem.startsWith("http://") || urlimagem.startsWith("https://"))) {
-        document.querySelector('.Perguntas').classList.add('escondido');
-    } else {
-        alert('n pode');
-    }}
-
 function abrirPergunta(clicado){
     clicado.classList.add('escondido');
     clicado.parentNode.classList.add('aberto');
@@ -56,19 +43,40 @@ function abrirPergunta(clicado){
     <textarea class="input resposta" type="text" value="" placeholder="Resposta correta"></textarea>
     <textarea class="input urlimagem" type="text" value="" placeholder="URL da imagem"></textarea>
     <h2>Respostas Incorretas</h2>
-    <textarea class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
-    <textarea class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 1"></textarea>
+    <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
+    <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 1"></textarea>
 
-    <textarea class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 2"></textarea>
-    <textarea class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 2"></textarea>
+    <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 2"></textarea>
+    <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 2"></textarea>
 
-    <textarea class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 3"></textarea>
-    <textarea class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 3"></textarea>
+    <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 3"></textarea>
+    <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 3"></textarea>
     `
 
     clicado.parentNode.innerHTML = fechar;
-    console.log(fechar);
 }
+
+function criarNiveis() {
+    let pergunta = document.querySelector('.pergunta').value;
+    let fundo = document.querySelector('.fundo').value;
+    let resposta = document.querySelector('.resposta').value;
+    let urlimagem = document.querySelector('.urlimagem').value;
+    let respostaIncorreta = document.querySelector('.respostaIncorreta').value;
+    let urlimagemIncorreta = document.querySelector('.urlimagemIncorreta').value;
+
+    if (pergunta.length > 19 && 
+        (fundo.startsWith("#") && fundo.length === 7) && 
+        resposta !== "" && 
+        (urlimagem.startsWith("http://") || urlimagem.startsWith("https://")) &&
+        respostaIncorreta !== "" && 
+        (urlimagemIncorreta.startsWith("http://") || urlimagemIncorreta.startsWith("https://"))
+        ){
+        document.querySelector('.Perguntas').classList.add('escondido');
+        document.querySelector('.Niveis').classList.remove('escondido');
+    } else {
+        alert('n pode');
+    }}
+
 
 function pegarQuizz() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');

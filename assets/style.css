@@ -292,7 +292,7 @@ ion-button ion-icon {
     justify-content: space-between;
 }
 
-.Perguntas .fechado h2 {
+.fechado h2 {
     margin-top: 0px;
 }
 
@@ -302,7 +302,7 @@ ion-button ion-icon {
     margin-right: 18px;
 }
 
-.Perguntas .urlimagem {
+.Perguntas .urlimagemIncorreta {
     margin-bottom: 30px;
 }
 
