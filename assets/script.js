@@ -99,7 +99,7 @@ function renderQuizz(response) {
     Quizzes.innerHTML = '';
     let infodata = response.data;
     for (let i = 0; i < 6; i++) {
-        Quizzes.innerHTML += `<div class="shadow" onclick="visualizarQuizz(${infodata[i].id})">\n
+        Quizzes.innerHTML += `<div class="shadow" onclick="buscarQuizz(${infodata[i].id})">\n
         <div><img src="${infodata[i].image}" alt="quizz"></div>\n
         <div class="title"> ${infodata[i].title}</div></div>
     `;
@@ -125,6 +125,7 @@ function buscarQuizz(id) {
 //Insere os dados no HTML
 function visualizarQuizz(dados) {
     quizzSelecionado = dados.data;
+    escondeTela1();
 
     const img = document.querySelector(".imagemquizz");
     const tituloQuizz = img.querySelector(".titulo");
