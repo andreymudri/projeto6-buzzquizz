@@ -306,10 +306,6 @@ ion-button ion-icon {
     margin-bottom: 30px;
 }
 
-.escondido {
-    display: none;
-}
-
 .Niveis div{
     height: 439px;
 }
@@ -317,6 +313,9 @@ ion-button ion-icon {
     height: 177px;
 }
 
+.escondido, .Perguntas .escondido {
+    display: none;
+}
 
 
 

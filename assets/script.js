@@ -1,4 +1,6 @@
 let Quizzes = document.querySelector('#listaquizz');
+
+
 function criarPerguntas() {
     let titulo = document.querySelector('.titulo').value;
     let imagem = document.querySelector('.imagem').value;
@@ -7,7 +9,39 @@ function criarPerguntas() {
 
     if ((titulo.length > 19 && titulo.length < 66) && (imagem.startsWith("http://") || imagem.startsWith("https://")) && Number(qtdPerguntas) > 2 && niveis > 1) {
         document.querySelector('.InfoBasica').classList.add('escondido');
+
+        let pagePerguntas = document.querySelector('.listaPerguntas').innerHTML;
+        for (i=2; i<=qtdPerguntas; i++){
+            pagePerguntas += `<div class="fechado">
+            <h2>Pergunta ${i}</h2><img onclick="abrirPergunta()" src="imagens/icone.png">
+        </div>
+
+        <div class="next aberto escondido">
+                <h2>Pergunta ${i}</h2>
+                <textarea class="input pergunta" type="text" value="" placeholder="Texto da pergunta"></textarea>
+                <textarea class="input fundo" type="text" value="" placeholder="Cor de fundo da pergunta"></textarea>
+                <h2>Resposta correta</h2>
+                <textarea class="input resposta" type="text" value="" placeholder="Resposta correta"></textarea>
+                <textarea class="input urlimagem" type="text" value="" placeholder="URL da imagem"></textarea>
+                <h2>Respostas Incorretas</h2>
+                <textarea class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
+                <textarea class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 1"></textarea>
+
+                <textarea class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 2"></textarea>
+                <textarea class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 2"></textarea>
+
+                <textarea class="input resposta Incorreta" type="text" value="" placeholder="Resposta incorreta 3"></textarea>
+                <textarea class="input urlimagem Incorreta" type="text" value="" placeholder="URL da imagem 3"></textarea>
+
+            </div>
+        `
+
+        document.querySelector('.listaPerguntas').innerHTML = pagePerguntas;
+        }
+        
         document.querySelector('.Perguntas').classList.remove('escondido');
+        console.log(pagePerguntas)
+        
     }
     else {
         alert('n pode')
@@ -26,6 +60,12 @@ function criarNiveis() {
     } else {
         alert('n pode');
     }
+}
+
+function abrirPergunta(){
+    document.querySelector('.Perguntas .fechado').classList.add('escondido');
+    document.querySelector('.Perguntas .next').classList.remove('escondido');
+
 }
 
 function pegarQuizz() {
