@@ -73,8 +73,16 @@ function abrirPergunta(clicado){
 function pegarQuizz() {
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
     promise.then(renderQuizz);
-    promise.then(console.log('puxei os quizz'));
     promise.catch(erro);
+    if (localStorage !== null) {
+        let esconder1 = document.querySelector('.quizzCriados');
+        esconder1.classList.add('escondido');
+    } else {
+        let esconder2 = document.querySelector('.criarquizz');
+            esconder2.classList.add('escondido');
+    }
+    escondeTela2();
+    escondeTela3();
 }
 function erro(response) {
     console.log(response);
@@ -83,7 +91,7 @@ function renderQuizz(response) {
     Quizzes.innerHTML = '';
     let infodata = response.data;
     for (let i = 0; i < 6; i++) {
-        Quizzes.innerHTML += `<div class="shadow" onclick="mostrarQuizz(${infodata[i].id})">\n
+        Quizzes.innerHTML += `<div class="shadow" onclick="visualizarQuizz(${infodata[i].id})">\n
         <div><img src="${infodata[i].image}" alt="quizz"></div>\n
         <div class="title"> ${infodata[i].title}</div></div>
     `;
@@ -234,4 +242,23 @@ function scrollarPagina(id) {
         console.log("não tem outra pergunta gerar resultados")
     }
 
+}
+
+function escondeTela1(){
+    let esconder1 = document.querySelector('.quizzlocal');
+        esconder1.classList.add('escondido');
+    let esconder2 = document.querySelector('.criarquizz');
+        esconder2.classList.add('escondido');
+    let esconder3 = document.querySelector('.todosquizz') ;
+        esconder3.classList.add('escondido');
+}
+function escondeTela2(){
+    let esconder = document.querySelector('.tela2');
+    esconder.classList.add('escondido');
+}
+function escondeTela3(){
+    let esconder1 = document.querySelector('.tela3');
+    esconder1.classList.add('escondido');
+    let esconder2 = document.querySelector('.tela3.Niveis');
+        esconder2.classList.add('escondido');
 }
