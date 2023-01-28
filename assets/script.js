@@ -155,7 +155,7 @@ function visualizarQuizz(dados) {
     escondeTela1();
 
     const img = document.querySelector(".imagemquizz");
-    const tituloQuizz = img.querySelector(".titulo");
+    const tituloQuizz = img.querySelector(".tituloQuizz");
 
     tituloQuizz.innerHTML = quizzSelecionado.data.title;
     img.setAttribute("style", `background-image: url(${quizzSelecionado.data.image});
@@ -376,9 +376,9 @@ function returnHome() {
     escondeTela2();
     escondeTela3();
     let mostrar1 = document.querySelector('.quizzlocal');
-        mostrar1.classList.remove('escondido');
+    mostrar1.classList.remove('escondido');
     let mostrar2 = document.querySelector('.criarquizz');
-        mostrar2.classList.remove('escondido');
+    mostrar2.classList.remove('escondido');
     let mostrar3 = document.querySelector('.todosquizz');
-        mostrar3.classList.remove('escondido');
+    mostrar3.classList.remove('escondido');
 }
