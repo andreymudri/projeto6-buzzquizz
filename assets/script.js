@@ -11,16 +11,16 @@ function criarPerguntas() {
         document.querySelector('.InfoBasica').classList.add('escondido');
 
         let pagePerguntas = document.querySelector('.listaPerguntas').innerHTML;
-        for (i=2; i<=qtdPerguntas; i++){
+        for (i = 2; i <= qtdPerguntas; i++) {
             pagePerguntas += `<div class="fechado">
             <h2>Pergunta ${i}</h2><img onclick="abrirPergunta(this)" src="imagens/icone.png">
         </div>
 
         `
 
-        document.querySelector('.listaPerguntas').innerHTML = pagePerguntas;
+            document.querySelector('.listaPerguntas').innerHTML = pagePerguntas;
         }
-        
+
         document.querySelector('.Perguntas').classList.remove('escondido');
         console.log(pagePerguntas)
 
@@ -30,13 +30,13 @@ function criarPerguntas() {
     }
 }
 
-function abrirPergunta(clicado){
+function abrirPergunta(clicado) {
     clicado.classList.add('escondido');
     clicado.parentNode.classList.add('aberto');
     clicado.parentNode.classList.remove('fechado');
     let fechar = clicado.parentNode.innerHTML;
 
-    fechar+= `
+    fechar += `
     <textarea class="input pergunta" type="text" value="" placeholder="Texto da pergunta"></textarea>
     <textarea class="input fundo" type="text" value="" placeholder="Cor de fundo da pergunta"></textarea>
     <h2>Resposta correta</h2>
@@ -64,35 +64,36 @@ function criarNiveis() {
     let respostaIncorreta = document.querySelector('.respostaIncorreta').value;
     let urlimagemIncorreta = document.querySelector('.urlimagemIncorreta').value;
 
-    if (pergunta.length > 19 && 
-        (fundo.startsWith("#") && fundo.length === 7) && 
-        resposta !== "" && 
+    if (pergunta.length > 19 &&
+        (fundo.startsWith("#") && fundo.length === 7) &&
+        resposta !== "" &&
         (urlimagem.startsWith("http://") || urlimagem.startsWith("https://")) &&
-        respostaIncorreta !== "" && 
+        respostaIncorreta !== "" &&
         (urlimagemIncorreta.startsWith("http://") || urlimagemIncorreta.startsWith("https://"))
-        ){
+    ) {
         document.querySelector('.Perguntas').classList.add('escondido');
 
         let pageNiveis = document.querySelector('.listaNiveis').innerHTML;
-        for (i=2; i<=niveis; i++){
+        for (i = 2; i <= niveis; i++) {
             pageNiveis += `<div class="fechado">
         <h2>Nível ${i}</h2><img onclick="abrirNiveis(this)" src="imagens/icone.png">
     </div>
     `
-    document.querySelector('.listaNiveis').innerHTML = pageNiveis;
+            document.querySelector('.listaNiveis').innerHTML = pageNiveis;
         }
         document.querySelector('.Niveis').classList.remove('escondido');
     } else {
         alert('n pode');
-    }}
+    }
+}
 
-function abrirNiveis(clicado){
+function abrirNiveis(clicado) {
     clicado.classList.add('escondido');
     clicado.parentNode.classList.add('aberto');
     clicado.parentNode.classList.remove('fechado');
     let fechar = clicado.parentNode.innerHTML;
 
-    fechar+= `
+    fechar += `
     <textarea class="input tituloNivel" type="text" value="" placeholder="Título do nível"></textarea>
     <textarea class="input porcentagemNivel" type="text" value="" placeholder="% de acerto mínima"></textarea>
     <textarea class="input urlNivel" type="text" value="" placeholder="URL da imagem do nível"></textarea>
@@ -113,7 +114,7 @@ function pegarQuizz() {
         esconder1.classList.add('escondido');
     } else {
         let esconder2 = document.querySelector('.criarquizz');
-            esconder2.classList.add('escondido');
+        esconder2.classList.add('escondido');
     }
     escondeTela2();
     escondeTela3();
@@ -274,34 +275,79 @@ function scrollarPagina(id) {
         proxPergunta.scrollIntoView();
 
     } else {
-        console.log("não tem outra pergunta gerar resultados")
+        calcularResultados();
+        document.querySelector(".resultado").scrollIntoView()
     }
 
 }
 
-function escondeTela1(){
-    let esconder1 = document.querySelector('.quizzlocal');
-        esconder1.classList.add('escondido');
-    let esconder2 = document.querySelector('.criarquizz');
-        esconder2.classList.add('escondido');
-    let esconder3 = document.querySelector('.todosquizz') ;
-        esconder3.classList.add('escondido');
+//gera o resultado do quizz;
+function calcularResultados() {
+    let acertos = document.querySelectorAll(".selecionado.correta").length;
+    let perguntas = document.querySelectorAll(".tela2 .pergunta").length;
+
+    let porc = Math.round((acertos / perguntas) * 100);
+
+    let nivel = descobrirNivel(porc);
+
+    gerarResultados(quizzSelecionado.levels[nivel], porc);
 }
-function escondeTela2(){
+
+// retorna o nivel correspondente a cada porcentagem
+function descobrirNivel(porcAcertos) {
+
+    let index = 0;
+    while (porcAcertos > quizzSelecionado.levels[index + 1].minValue) {
+
+        index++;
+
+        if (index === quizzSelecionado.levels.length - 1) break;
+
+    }
+
+    return index;
+}
+
+///gera o html dos resultados
+function gerarResultados(level, porcAcertos) {
+    console.log(level)
+    const novaDiv = document.createElement("div");
+
+    novaDiv.classList.add("resultado");
+
+    novaDiv.innerHTML = `<div class="textoresultado">
+                    <h3>${porcAcertos}% de acerto: ${level.title}</h3>
+                </div>
+                <img
+                    src=${level.image}>
+                <p>${level.text}</p>`;
+
+    tela2.appendChild(novaDiv);
+}
+
+function escondeTela1() {
+    let esconder1 = document.querySelector('.quizzlocal');
+    esconder1.classList.add('escondido');
+    let esconder2 = document.querySelector('.criarquizz');
+    esconder2.classList.add('escondido');
+    let esconder3 = document.querySelector('.todosquizz');
+    esconder3.classList.add('escondido');
+}
+function escondeTela2() {
     let esconder = document.querySelector('.tela2');
     esconder.classList.add('escondido');
 }
-function escondeTela3(){
+function escondeTela3() {
     let esconder1 = document.querySelector('.tela3');
     esconder1.classList.add('escondido');
     let esconder2 = document.querySelector('.tela3.Niveis');
-        esconder2.classList.add('escondido');
+    esconder2.classList.add('escondido');
 }
 
-function criarquizz(){
-escondeTela1();
-escondeTela2();
-let mostra = document.querySelector('.tela3');
-mostra.classList.remove('escondido');
+function criarquizz() {
+    escondeTela1();
+    escondeTela2();
+    let mostra = document.querySelector('.tela3');
+    mostra.classList.remove('escondido');
 
 }
