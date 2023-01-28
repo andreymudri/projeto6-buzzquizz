@@ -175,7 +175,7 @@ function gerarPerguntas(pergunta, index) {
 
     const novaDiv = document.createElement("div");
 
-    novaDiv.classList.add("pergunta");
+    novaDiv.classList.add("question");
     novaDiv.innerHTML = `<div class="textopergunta" style="background-color:${pergunta.color}" >
     <p>${pergunta.title}</p>
 </div>
@@ -286,7 +286,7 @@ function scrollarPagina(id) {
 //gera o resultado do quizz;
 function calcularResultados() {
     let acertos = document.querySelectorAll(".selecionado.correta").length;
-    let perguntas = document.querySelectorAll(".tela2 .pergunta").length;
+    let perguntas = document.querySelectorAll(".tela2 .question").length;
 
     let porc = Math.round((acertos / perguntas) * 100);
 
@@ -336,7 +336,7 @@ function removerPerguntas() {
     let remover;
 
     for (let i = 0; i < quizzSelecionado.data.questions.length; i++) {
-        remover = tela2.querySelector(".pergunta");
+        remover = tela2.querySelector(".question");
         tela2.removeChild(remover);
     }
 
