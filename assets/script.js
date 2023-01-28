@@ -151,19 +151,21 @@ function buscarQuizz(id) {
 
 //Insere os dados no HTML
 function visualizarQuizz(dados) {
-    quizzSelecionado = dados.data;
+    quizzSelecionado = dados;
     escondeTela1();
 
     const img = document.querySelector(".imagemquizz");
     const tituloQuizz = img.querySelector(".titulo");
 
-    tituloQuizz.innerHTML = dados.data.title;
-    img.setAttribute("style", `background-image: url(${dados.data.image});
+    tituloQuizz.innerHTML = quizzSelecionado.data.title;
+    img.setAttribute("style", `background-image: url(${quizzSelecionado.data.image});
     `);
 
-    dados.data.questions.forEach(gerarPerguntas);
+    quizzSelecionado.data.questions.forEach(gerarPerguntas);
 
     tela2.style.display = "flex";
+
+    tela2.querySelector(".imagemquizz").scrollIntoView();
 
 }
 
@@ -255,7 +257,7 @@ function foiClicada(elemento) {
 
 //mostra qual são as respostas erradas e a correta
 function mostrarRespostas(index, reps) {
-    let solucao = quizzSelecionado.questions[index].answers;
+    let solucao = quizzSelecionado.data.questions[index].answers;
 
     for (let i = 0; i < reps.length; i++) {
         if (solucao[i].isCorrectAnswer) {
@@ -270,7 +272,7 @@ function mostrarRespostas(index, reps) {
 function scrollarPagina(id) {
     let idPergunta = (Number(id) + 1);
 
-    if (quizzSelecionado.questions.length > idPergunta) {
+    if (quizzSelecionado.data.questions.length > idPergunta) {
         let proxPergunta = document.getElementById(idPergunta).parentNode;
         proxPergunta.scrollIntoView();
 
@@ -290,18 +292,18 @@ function calcularResultados() {
 
     let nivel = descobrirNivel(porc);
 
-    gerarResultados(quizzSelecionado.levels[nivel], porc);
+    gerarResultados(quizzSelecionado.data.levels[nivel], porc);
 }
 
 // retorna o nivel correspondente a cada porcentagem
 function descobrirNivel(porcAcertos) {
 
     let index = 0;
-    while (porcAcertos > quizzSelecionado.levels[index + 1].minValue) {
+    while (porcAcertos > quizzSelecionado.data.levels[index + 1].minValue) {
 
         index++;
 
-        if (index === quizzSelecionado.levels.length - 1) break;
+        if (index === quizzSelecionado.data.levels.length - 1) break;
 
     }
 
@@ -310,7 +312,6 @@ function descobrirNivel(porcAcertos) {
 
 ///gera o html dos resultados
 function gerarResultados(level, porcAcertos) {
-    console.log(level)
     const novaDiv = document.createElement("div");
 
     novaDiv.classList.add("resultado");
@@ -323,6 +324,25 @@ function gerarResultados(level, porcAcertos) {
                 <p>${level.text}</p>`;
 
     tela2.appendChild(novaDiv);
+}
+
+function reiniciarQuizz() {
+    removerPerguntas();
+    visualizarQuizz(quizzSelecionado);
+}
+
+function removerPerguntas() {
+
+    let remover;
+
+    for (let i = 0; i < quizzSelecionado.data.questions.length; i++) {
+        remover = tela2.querySelector(".pergunta");
+        tela2.removeChild(remover);
+    }
+
+    remover = tela2.querySelector(".resultado");
+    tela2.removeChild(remover);
+
 }
 
 function escondeTela1() {
