@@ -371,3 +371,14 @@ function criarquizz() {
     mostra.classList.remove('escondido');
 
 }
+function returnHome() {
+    tela2.style.display = "none";
+    escondeTela2();
+    escondeTela3();
+    let mostrar1 = document.querySelector('.quizzlocal');
+        mostrar1.classList.remove('escondido');
+    let mostrar2 = document.querySelector('.criarquizz');
+        mostrar2.classList.remove('escondido');
+    let mostrar3 = document.querySelector('.todosquizz');
+        mostrar3.classList.remove('escondido');
+}
