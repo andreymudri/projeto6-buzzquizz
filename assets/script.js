@@ -1,16 +1,25 @@
 let Quizzes = document.querySelector('#listaquizz');
 
 let niveis;
+let qtdPerguntas;
+let pergunta;
+let pageNiveis;
+let fundo;
+let resposta;
+let urlimagem;
+let respostaIncorreta;
+let urlimagemIncorreta;
+
+let pagePerguntas = document.querySelector('.listaPerguntas').innerHTML;
 function criarPerguntas() {
     let titulo = document.querySelector('.titulo').value;
     let imagem = document.querySelector('.imagem').value;
-    let qtdPerguntas = document.querySelector('.qtdPerguntas').value;
+    qtdPerguntas = document.querySelector('.qtdPerguntas').value;
     niveis = document.querySelector('.niveis').value;
 
     if ((titulo.length > 19 && titulo.length < 66) && (imagem.startsWith("http://") || imagem.startsWith("https://")) && Number(qtdPerguntas) > 2 && niveis > 1) {
         document.querySelector('.InfoBasica').classList.add('escondido');
 
-        let pagePerguntas = document.querySelector('.listaPerguntas').innerHTML;
         for (i=2; i<=qtdPerguntas; i++){
             pagePerguntas += `<div class="fechado">
             <h2>Pergunta ${i}</h2><img onclick="abrirPergunta(this)" src="imagens/icone.png">
@@ -43,8 +52,8 @@ function abrirPergunta(clicado){
     <textarea class="input resposta" type="text" value="" placeholder="Resposta correta"></textarea>
     <textarea class="input urlimagem" type="text" value="" placeholder="URL da imagem"></textarea>
     <h2>Respostas Incorretas</h2>
-    <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
-    <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 1"></textarea>
+    <textarea class="input respostaIncorreta1" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
+    <textarea class="input urlimagemIncorreta1" type="text" value="" placeholder="URL da imagem 1"></textarea>
 
     <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 2"></textarea>
     <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 2"></textarea>
@@ -56,35 +65,54 @@ function abrirPergunta(clicado){
     clicado.parentNode.innerHTML = fechar;
 }
 
+
 function criarNiveis() {
-    let pergunta = document.querySelector('.pergunta').value;
-    let fundo = document.querySelector('.fundo').value;
-    let resposta = document.querySelector('.resposta').value;
-    let urlimagem = document.querySelector('.urlimagem').value;
-    let respostaIncorreta = document.querySelector('.respostaIncorreta').value;
-    let urlimagemIncorreta = document.querySelector('.urlimagemIncorreta').value;
 
-    if (pergunta.length > 19 && 
-        (fundo.startsWith("#") && fundo.length === 7) && 
-        resposta !== "" && 
-        (urlimagem.startsWith("http://") || urlimagem.startsWith("https://")) &&
-        respostaIncorreta !== "" && 
-        (urlimagemIncorreta.startsWith("http://") || urlimagemIncorreta.startsWith("https://"))
-        ){
-        document.querySelector('.Perguntas').classList.add('escondido');
 
-        let pageNiveis = document.querySelector('.listaNiveis').innerHTML;
-        for (i=2; i<=niveis; i++){
-            pageNiveis += `<div class="fechado">
-        <h2>Nível ${i}</h2><img onclick="abrirNiveis(this)" src="imagens/icone.png">
-    </div>
-    `
-    document.querySelector('.listaNiveis').innerHTML = pageNiveis;
+    let verificaitems = document.querySelectorAll('.aberto');
+    console.log(verificaitems.length);
+        
+        
+    for (contador = 1; contador <= 3; contador++) {
+        pergunta = document.querySelector(`.aberto:nth-child(${contador}) .pergunta`).value;
+        console.log('aqui' + pergunta);
+        fundo = document.querySelector(`.aberto:nth-child(${contador}) .fundo`).value;
+        resposta = document.querySelector(`.aberto:nth-child(${contador}) .resposta`).value;
+        urlimagem = document.querySelector(`.aberto:nth-child(${contador}) .urlimagem`).value;
+        respostaIncorreta = document.querySelector(`.aberto:nth-child(${contador}) .respostaIncorreta1`).value;
+        urlimagemIncorreta = document.querySelector(`.aberto:nth-child(${contador}) .urlimagemIncorreta1`).value; 
+        
+
+        if (verificaitems.length === (Number(qtdPerguntas) + 1) &&
+            pergunta.length > 19 && 
+            (fundo.startsWith("#") && fundo.length === 7) && 
+            resposta !== "" && 
+            (urlimagem.startsWith("http://") || urlimagem.startsWith("https://")) &&
+            respostaIncorreta !== "" && 
+            (urlimagemIncorreta.startsWith("http://") || urlimagemIncorreta.startsWith("https://"))
+            ){    
+            pageNiveis = document.querySelector('.listaNiveis').innerHTML;
+
+            
+        } else {
+            
+            return(alert('n pode'));
         }
+    }
+    for (i=2; i<=niveis; i++){
+        pageNiveis += `<div class="fechado">
+         <h2>Nível ${i}</h2><img onclick="abrirNiveis(this)" src="imagens/icone.png">
+         </div>
+            `
+        document.querySelector('.listaNiveis').innerHTML = pageNiveis;
+    }
+        document.querySelector('.Perguntas').classList.add('escondido');
         document.querySelector('.Niveis').classList.remove('escondido');
-    } else {
-        alert('n pode');
-    }}
+    }
+   
+
+   
+
 
 function abrirNiveis(clicado){
     clicado.classList.add('escondido');
