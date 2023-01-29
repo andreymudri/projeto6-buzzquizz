@@ -73,7 +73,7 @@ function criarNiveis() {
     console.log(verificaitems.length);
         
         
-    for (contador = 1; contador <= 3; contador++) {
+    for (contador = 1; contador <= qtdPerguntas; contador++) {
         pergunta = document.querySelector(`.aberto:nth-child(${contador}) .pergunta`).value;
         console.log('aqui' + pergunta);
         fundo = document.querySelector(`.aberto:nth-child(${contador}) .fundo`).value;
@@ -111,9 +111,6 @@ function criarNiveis() {
     }
    
 
-   
-
-
 function abrirNiveis(clicado) {
     clicado.classList.add('escondido');
     clicado.parentNode.classList.add('aberto');
@@ -128,6 +125,31 @@ function abrirNiveis(clicado) {
     `
 
     clicado.parentNode.innerHTML = fechar;
+
+}
+
+function finalizarQuizz() {
+    let verificaitems = document.querySelectorAll('.aberto');
+    console.log(verificaitems.length);
+        
+        
+    for (contador = 1; contador <= niveis; contador++) {
+        tituloNivel = document.querySelector(`.aberto:nth-child(${contador}) .tituloNivel`).value;
+        porcentagemNivel = document.querySelector(`.aberto:nth-child(${contador}) .porcentagemNivel`).value;
+        urlNivel = document.querySelector(`.aberto:nth-child(${contador}) .urlNivel`).value;
+        descricaoNivel = document.querySelector(`.aberto:nth-child(${contador}) .descricaoNivel`).value;
+
+        if (verificaitems.length === (Number(qtdPerguntas) + Number(niveis)) &&
+            tituloNivel.length > 9 && 
+            (porcentagemNivel>=0 && porcentagemNivel<101) && 
+            (urlNivel.startsWith("http://") || urlNivel.startsWith("https://")) &&
+            descricaoNivel.length > 29) { 
+            
+        }else {   
+         return(alert('n pode'));
+        }    }
+        document.querySelector('.Niveis').classList.add('escondido');
+        document.querySelector('.Finalizacao').classList.remove('escondido');
 
 }
 

@@ -314,6 +314,13 @@ ion-button ion-icon {
     height: 177px;
 }
 
+.tela3 .whitebtn{
+    background: none;
+    color: #818181;
+    margin-top: -85px;
+
+}
+
 .escondido,
 .Perguntas .escondido {
     display: none;
