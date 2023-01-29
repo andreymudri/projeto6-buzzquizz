@@ -382,3 +382,50 @@ function returnHome() {
     let mostrar3 = document.querySelector('.todosquizz');
     mostrar3.classList.remove('escondido');
 }
+
+
+
+const objetoQuizz = {};
+
+function criarObjetoquizz() {
+    objetoQuizz =  {
+        title: document.querySelector('.titulo').value,
+        image: document.querySelector('.imagem').value,
+        questions: [{
+            title: document.querySelector('.input.pergunta').value,
+            color: document.querySelector('.input.fundo').value,
+            answers:[]
+        }
+        ],
+        levels: []
+    };
+
+    let qtdPerguntas = document.querySelector('.qtdPerguntas').value;
+
+    for (let i = 0; i < qtdPerguntas; i++) {
+
+        let quizz = {
+            title: document.querySelectorAll('.input.pergunta')[i].value, // titulo do quizz
+            color: document.querySelectorAll('.input.fundo')[i].value, // imagem background to titulo do quizz    
+            answers: [{
+                text: document.querySelectorAll('.input.resposta')[i].value, //1
+                image: document.querySelectorAll('.input.urlimagem')[i].value, //1
+                isCorrectAnswer: true
+            }, {
+                text : document.querySelectorAll('.input.pergunta')[1].value,  //2
+                image : document.querySelectorAll('.input.urlimagemIncorreta')[0].value, //2
+                isCorrectAnswer : false
+            }]
+        }
+        if (document.querySelectorAll('.input.pergunta')[2].value !== '') {
+        Quizz.questions[i].answers[2].text  = document.querySelectorAll('.input.pergunta')[2].value   //3
+        Quizz.questions[i].answers[2].image = document.querySelectorAll('.input.urlimagemIncorreta')[1].value   //3
+        Quizz.questions[i].answers[2].isCorrectAnswer = false;}
+        if (document.querySelectorAll('.input.pergunta')[3].value !== '') {
+            
+        Quizz.questions[i].answers[3].text  = document.querySelectorAll('.input.pergunta')[3].value  //4
+        Quizz.questions[i].answers[3].image = document.querySelectorAll('.input.urlimagemIncorreta')[2].value  //4
+            Quizz.questions[i].answers[3].isCorrectAnswer = false;
+    }
+    }
+}
