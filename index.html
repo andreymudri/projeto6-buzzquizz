@@ -41,23 +41,12 @@
         <div class="tela2">
             <div class="imagemquizz">
                 <div>
-                    <h1 class="titulo"></h1>
+                    <h1 class="tituloQuizz"></h1>
                 </div>
             </div>
 
-            <div class="resultado">
-                <div class="textoresultado">
-                    <h3><span>88%</span> de acerto: <span>Você é praticamente um aluno de Hogwarts!</span></h3>
-                </div>
-                <img
-                    src="https://www.opovo.com.br/_midias/jpg/2021/09/24/818x460/1_harry_potter_e_a_pedra_filosofal-17117216.jpg">
-                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
-                    abaixo
-                    para usar o vira-tempo e reiniciar este teste.</p>
-            </div>
-
-            <button class="btnreiniciar">Reiniciar Quizz</button>
-            <button class="btnhome">Voltar pra home</button>
+            <button class="btnreiniciar" onclick="reiniciarQuizz()">Reiniciar Quizz</button>
+            <button class="btnhome" onclick="returnHome()">Voltar pra home</button>
 
         </div>
 -->
@@ -68,8 +57,10 @@
             <div class="infos">
                 <textarea class="input titulo" type="text" value="" placeholder="Título do seu quizz"></textarea>
                 <textarea class="input imagem" type="text" value="" placeholder="URL da imagem do seu quizz"></textarea>
-                <textarea class="input qtdPerguntas" type="text" value="" placeholder="Quantidade de perguntas do quizz"></textarea>
-                <textarea class="input niveis" type="text" value="" placeholder="Quantidade de níveis do quizz"></textarea>
+                <textarea class="input qtdPerguntas" type="text" value=""
+                    placeholder="Quantidade de perguntas do quizz"></textarea>
+                <textarea class="input niveis" type="text" value=""
+                    placeholder="Quantidade de níveis do quizz"></textarea>
             </div>
             <button onclick="criarPerguntas()">Prosseguir para criar perguntas</button>
         </div>
@@ -89,30 +80,37 @@
                 <textarea class="input respostaIncorreta1" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
                 <textarea class="input urlimagemIncorreta1" type="text" value="" placeholder="URL da imagem 1"></textarea>
 
-                <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 2"></textarea>
-                <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 2"></textarea>
+                    <textarea class="input respostaIncorreta" type="text" value=""
+                        placeholder="Resposta incorreta 2"></textarea>
+                    <textarea class="input urlimagemIncorreta" type="text" value=""
+                        placeholder="URL da imagem 2"></textarea>
 
-                <textarea class="input respostaIncorreta" type="text" value="" placeholder="Resposta incorreta 3"></textarea>
-                <textarea class="input urlimagemIncorreta" type="text" value="" placeholder="URL da imagem 3"></textarea>
+                    <textarea class="input respostaIncorreta" type="text" value=""
+                        placeholder="Resposta incorreta 3"></textarea>
+                    <textarea class="input urlimagemIncorreta" type="text" value=""
+                        placeholder="URL da imagem 3"></textarea>
 
-            </div>
+                </div>
 
             </ul>
             <button onclick="criarNiveis()">Prosseguir para criar níveis</button>
 
         </div>
-        
+
 
         <div class="tela3 Niveis escondido">
             <h1>Agora, decida os níveis!</h1>
             <ul class="listaNiveis">
-            <div class="aberto">
-                <h2>Nível 1</h2>
-                <textarea class="input tituloNivel" type="text" value="" placeholder="Título do nível"></textarea>
-                <textarea class="input porcentagemNivel" type="text" value="" placeholder="% de acerto mínima"></textarea>
-                <textarea class="input urlNivel" type="text" value="" placeholder="URL da imagem do nível"></textarea>
-                <textarea class="input descricaoNivel" type="text" value="" placeholder="Descrição do nível"></textarea>
-            </div>
+                <div class="aberto">
+                    <h2>Nível 1</h2>
+                    <textarea class="input tituloNivel" type="text" value="" placeholder="Título do nível"></textarea>
+                    <textarea class="input porcentagemNivel" type="text" value=""
+                        placeholder="% de acerto mínima"></textarea>
+                    <textarea class="input urlNivel" type="text" value=""
+                        placeholder="URL da imagem do nível"></textarea>
+                    <textarea class="input descricaoNivel" type="text" value=""
+                        placeholder="Descrição do nível"></textarea>
+                </div>
 
             </ul>
             <button onclick="finalizarQuizz()">Finalizar Quizz</button>
@@ -121,7 +119,7 @@
 
     </div>
 
-        
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

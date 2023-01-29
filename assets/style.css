@@ -219,7 +219,8 @@ ion-button ion-icon {
 
 }
 
-.tela3 textarea , .tela3 input  {
+.tela3 textarea,
+.tela3 input {
     box-sizing: border-box;
     width: 564px;
     height: 46px;
@@ -281,7 +282,8 @@ ion-button ion-icon {
     min-height: 825px;
 }
 
-.Perguntas .fechado, .Niveis .fechado {
+.Perguntas .fechado,
+.Niveis .fechado {
     height: 74px;
     display: flex;
     flex-direction: row;
@@ -293,7 +295,8 @@ ion-button ion-icon {
     margin-top: 0px;
 }
 
-.Perguntas img , .Niveis img {
+.Perguntas img,
+.Niveis img {
     height: 23px;
     width: 26px;
     margin-right: 18px;
@@ -303,14 +306,16 @@ ion-button ion-icon {
     margin-bottom: 30px;
 }
 
-.Niveis div{
+.Niveis div {
     height: 439px;
 }
+
 .tela3 .descricaoNivel {
     height: 177px;
 }
 
-.escondido, .Perguntas .escondido {
+.escondido,
+.Perguntas .escondido {
     display: none;
 }
 
@@ -348,7 +353,7 @@ ion-button ion-icon {
     color: #FFFFFF;
 }
 
-.tela2 .pergunta {
+.tela2 .question {
     margin-top: 42px;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
@@ -471,7 +476,7 @@ ion-button ion-icon {
     line-height: 25px;
     color: #FFF5F4;
     margin: 57px 0px 16px 0px;
-    order: 1;
+    order: 2;
 }
 
 .tela2 .btnhome {
@@ -487,7 +492,7 @@ ion-button ion-icon {
     line-height: 25px;
     color: #818181;
     margin-bottom: 85px;
-    order: 1;
+    order: 2;
 }
 
 .respondida .Nselecionado {
