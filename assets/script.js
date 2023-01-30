@@ -17,8 +17,14 @@ function criarPerguntas() {
     qtdPerguntas = document.querySelector('.qtdPerguntas').value;
     niveis = document.querySelector('.niveis').value;
 
+    
+
     if ((titulo.length > 19 && titulo.length < 66) && (imagem.startsWith("http://") || imagem.startsWith("https://")) && Number(qtdPerguntas) > 2 && niveis > 1) {
         document.querySelector('.InfoBasica').classList.add('escondido');
+
+        objetoQuizz.title = titulo;
+        objetoQuizz.imagem = imagem;
+
 
         for (i=2; i<=qtdPerguntas; i++){
             pagePerguntas += `<div class="fechado">
@@ -35,7 +41,7 @@ function criarPerguntas() {
 
     }
     else {
-        alert('n pode')
+        alert('Por favor, preencha os dados corretamente.')
     }
 }
 
@@ -93,10 +99,16 @@ function criarNiveis() {
             ){    
             pageNiveis = document.querySelector('.listaNiveis').innerHTML;
 
-            
+            objetoQuizz.questions.push({title: pergunta, color: fundo, answers: []})
+
+            objetoQuizz.questions.answers.push({text: resposta, image: urlimagem, isCorrectAnswer: true});
+            objetoQuizz.questions.answers.push({text: respostaIncorreta, image: urlimagemIncorreta, isCorrectAnswer: false});
+
+            console.log(objetoQuizz);
+
         } else {
             
-            return(alert('n pode'));
+            return(alert('Por favor, preencha os dados corretamente.'));
         }
     }
     for (i=2; i<=niveis; i++){
@@ -146,7 +158,7 @@ function finalizarQuizz() {
             descricaoNivel.length > 29) { 
             
         }else {   
-         return(alert('n pode'));
+         return(alert('Por favor, preencha os dados corretamente.'));
         }    }
         document.querySelector('.Niveis').classList.add('escondido');
         document.querySelector('.Finalizacao').classList.remove('escondido');
