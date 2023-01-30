@@ -37,12 +37,33 @@ function criarPerguntas() {
         }
 
         document.querySelector('.Perguntas').classList.remove('escondido');
-        console.log(pagePerguntas)
+        console.log(pagePerguntas);
+
+        //
+        FinalizacaoImagem(titulo, imagem)
 
     }
     else {
         alert('Por favor, preencha os dados corretamente.')
     }
+
+
+
+
+}
+
+//insere a imagem na aba de finalização
+function FinalizacaoImagem(titulo, imagem) {
+    const img = document.querySelector(".tela3 .imagemQuizz");
+    const tituloQuizz = img.querySelector(".tela3 .tituloQuizz");
+    tituloQuizz.innerHTML = titulo;
+
+    img.setAttribute("style", `    
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url("https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg?w=2000");
+    `);
+
+    img.setAttribute("style", `    
+    background-size: cover`);
 }
 
 function abrirPergunta(clicado) {
@@ -216,8 +237,8 @@ function visualizarQuizz(dados) {
     quizzSelecionado = dados;
     escondeTela1();
 
-    const img = document.querySelector(".imagemquizz");
-    const tituloQuizz = img.querySelector(".tituloQuizz");
+    const img = document.querySelector(".tela2 .imagemquizz");
+    const tituloQuizz = img.querySelector(".tela2 .tituloQuizz");
 
     tituloQuizz.innerHTML = quizzSelecionado.data.title;
     img.setAttribute("style", `background-image: url(${quizzSelecionado.data.image});

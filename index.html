@@ -50,7 +50,7 @@
 
         </div>
 
-    
+
 
         <div class="tela3 InfoBasica escondido">
             <h1>Comece pelo começo</h1>
@@ -69,16 +69,19 @@
         <div class="tela3 Perguntas escondido">
             <h1>Crie suas perguntas</h1>
             <ul class="listaPerguntas">
-            <div class="aberto">
-                <h2>Pergunta 1</h2>
-                <textarea class="input pergunta" type="text" value="" placeholder="Texto da pergunta"></textarea>
-                <textarea class="input fundo" type="text" value="" placeholder="Cor de fundo da pergunta"></textarea>
-                <h2>Resposta correta</h2>
-                <textarea class="input resposta" type="text" value="" placeholder="Resposta correta"></textarea>
-                <textarea class="input urlimagem" type="text" value="" placeholder="URL da imagem"></textarea>
-                <h2>Respostas Incorretas</h2>
-                <textarea class="input respostaIncorreta1" type="text" value="" placeholder="Resposta incorreta 1"></textarea>
-                <textarea class="input urlimagemIncorreta1" type="text" value="" placeholder="URL da imagem 1"></textarea>
+                <div class="aberto">
+                    <h2>Pergunta 1</h2>
+                    <textarea class="input pergunta" type="text" value="" placeholder="Texto da pergunta"></textarea>
+                    <textarea class="input fundo" type="text" value=""
+                        placeholder="Cor de fundo da pergunta"></textarea>
+                    <h2>Resposta correta</h2>
+                    <textarea class="input resposta" type="text" value="" placeholder="Resposta correta"></textarea>
+                    <textarea class="input urlimagem" type="text" value="" placeholder="URL da imagem"></textarea>
+                    <h2>Respostas Incorretas</h2>
+                    <textarea class="input respostaIncorreta1" type="text" value=""
+                        placeholder="Resposta incorreta 1"></textarea>
+                    <textarea class="input urlimagemIncorreta1" type="text" value=""
+                        placeholder="URL da imagem 1"></textarea>
 
                     <textarea class="input respostaIncorreta" type="text" value=""
                         placeholder="Resposta incorreta 2"></textarea>
@@ -115,11 +118,13 @@
             </ul>
             <button onclick="finalizarQuizz()">Finalizar Quizz</button>
         </div>
-        
+
 
         <div class="tela3 Finalizacao escondido">
             <h1>Seu quizz está pronto!</h1>
-            <div></div>
+            <div class="imagemQuizz">
+                <p class="tituloQuizz"></p>
+            </div>
             <button onclick="acessarQuiz()">Acessar Quizz</button>
             <button class="whitebtn" onclick="returnHome()">Voltar para o home</button>
 
