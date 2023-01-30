@@ -10,6 +10,10 @@ let urlimagem;
 let respostaIncorreta;
 let urlimagemIncorreta;
 
+let questions = [];
+let answers = [];
+let objetoQuizz = [];
+
 let pagePerguntas = document.querySelector('.listaPerguntas').innerHTML;
 function criarPerguntas() {
     let titulo = document.querySelector('.titulo').value;
@@ -23,7 +27,9 @@ function criarPerguntas() {
         document.querySelector('.InfoBasica').classList.add('escondido');
 
         objetoQuizz.title = titulo;
-        objetoQuizz.imagem = imagem;
+        objetoQuizz.image = imagem;
+
+        console.log(objetoQuizz);
 
 
         for (i=2; i<=qtdPerguntas; i++){
@@ -91,7 +97,7 @@ function criarNiveis() {
 
         if (verificaitems.length === (Number(qtdPerguntas) + 1) &&
             pergunta.length > 19 && 
-            (fundo.startsWith("#") && fundo.length === 7) && 
+           (fundo.startsWith("#") && fundo.length === 7) && 
             resposta !== "" && 
             (urlimagem.startsWith("http://") || urlimagem.startsWith("https://")) &&
             respostaIncorreta !== "" && 
@@ -99,18 +105,20 @@ function criarNiveis() {
             ){    
             pageNiveis = document.querySelector('.listaNiveis').innerHTML;
 
-            objetoQuizz.questions.push({title: pergunta, color: fundo, answers: []})
+            objetoQuizz.push({questions:{title: pergunta, color: fundo, answers: [
+                {text: resposta, image: urlimagem, isCorrectAnswer: true}, 
+                {text: respostaIncorreta, image: urlimagemIncorreta, isCorrectAnswer: false}
+            ]}
+            })
 
-            objetoQuizz.questions.answers.push({text: resposta, image: urlimagem, isCorrectAnswer: true});
-            objetoQuizz.questions.answers.push({text: respostaIncorreta, image: urlimagemIncorreta, isCorrectAnswer: false});
-
-            console.log(objetoQuizz);
 
         } else {
             
             return(alert('Por favor, preencha os dados corretamente.'));
         }
     }
+    
+
     for (i=2; i<=niveis; i++){
         pageNiveis += `<div class="fechado">
          <h2>Nível ${i}</h2><img onclick="abrirNiveis(this)" src="imagens/icone.png">
@@ -156,6 +164,9 @@ function finalizarQuizz() {
             (porcentagemNivel>=0 && porcentagemNivel<101) && 
             (urlNivel.startsWith("http://") || urlNivel.startsWith("https://")) &&
             descricaoNivel.length > 29) { 
+
+                objetoQuizz.push({levels: {title : tituloNivel, image: urlNivel, text: descricaoNivel, minValue: porcentagemNivel}})
+
             
         }else {   
          return(alert('Por favor, preencha os dados corretamente.'));
@@ -446,7 +457,7 @@ function returnHome() {
 
 
 
-const objetoQuizz = {};
+
 
 function criarObjetoquizz() {
     objetoQuizz =  {
