@@ -17,7 +17,7 @@ function criarPerguntas() {
     qtdPerguntas = document.querySelector('.qtdPerguntas').value;
     niveis = document.querySelector('.niveis').value;
 
-    
+
 
     if ((titulo.length > 19 && titulo.length < 66) && (imagem.startsWith("http://") || imagem.startsWith("https://")) && Number(qtdPerguntas) > 2 && niveis > 1) {
         document.querySelector('.InfoBasica').classList.add('escondido');
@@ -26,7 +26,7 @@ function criarPerguntas() {
         objetoQuizz.imagem = imagem;
 
 
-        for (i=2; i<=qtdPerguntas; i++){
+        for (i = 2; i <= qtdPerguntas; i++) {
             pagePerguntas += `<div class="fechado">
             <h2>Pergunta ${i}</h2><img onclick="abrirPergunta(this)" src="imagens/icone.png">
         </div>
@@ -77,8 +77,8 @@ function criarNiveis() {
 
     let verificaitems = document.querySelectorAll('.aberto');
     console.log(verificaitems.length);
-        
-        
+
+
     for (contador = 1; contador <= qtdPerguntas; contador++) {
         pergunta = document.querySelector(`.aberto:nth-child(${contador}) .pergunta`).value;
         console.log('aqui' + pergunta);
@@ -86,42 +86,42 @@ function criarNiveis() {
         resposta = document.querySelector(`.aberto:nth-child(${contador}) .resposta`).value;
         urlimagem = document.querySelector(`.aberto:nth-child(${contador}) .urlimagem`).value;
         respostaIncorreta = document.querySelector(`.aberto:nth-child(${contador}) .respostaIncorreta1`).value;
-        urlimagemIncorreta = document.querySelector(`.aberto:nth-child(${contador}) .urlimagemIncorreta1`).value; 
-        
+        urlimagemIncorreta = document.querySelector(`.aberto:nth-child(${contador}) .urlimagemIncorreta1`).value;
+
 
         if (verificaitems.length === (Number(qtdPerguntas) + 1) &&
-            pergunta.length > 19 && 
-            (fundo.startsWith("#") && fundo.length === 7) && 
-            resposta !== "" && 
+            pergunta.length > 19 &&
+            (fundo.startsWith("#") && fundo.length === 7) &&
+            resposta !== "" &&
             (urlimagem.startsWith("http://") || urlimagem.startsWith("https://")) &&
-            respostaIncorreta !== "" && 
+            respostaIncorreta !== "" &&
             (urlimagemIncorreta.startsWith("http://") || urlimagemIncorreta.startsWith("https://"))
-            ){    
+        ) {
             pageNiveis = document.querySelector('.listaNiveis').innerHTML;
 
-            objetoQuizz.questions.push({title: pergunta, color: fundo, answers: []})
+            objetoQuizz.questions.push({ title: pergunta, color: fundo, answers: [] })
 
-            objetoQuizz.questions.answers.push({text: resposta, image: urlimagem, isCorrectAnswer: true});
-            objetoQuizz.questions.answers.push({text: respostaIncorreta, image: urlimagemIncorreta, isCorrectAnswer: false});
+            objetoQuizz.questions.answers.push({ text: resposta, image: urlimagem, isCorrectAnswer: true });
+            objetoQuizz.questions.answers.push({ text: respostaIncorreta, image: urlimagemIncorreta, isCorrectAnswer: false });
 
             console.log(objetoQuizz);
 
         } else {
-            
-            return(alert('Por favor, preencha os dados corretamente.'));
+
+            return (alert('Por favor, preencha os dados corretamente.'));
         }
     }
-    for (i=2; i<=niveis; i++){
+    for (i = 2; i <= niveis; i++) {
         pageNiveis += `<div class="fechado">
          <h2>Nível ${i}</h2><img onclick="abrirNiveis(this)" src="imagens/icone.png">
          </div>
             `
         document.querySelector('.listaNiveis').innerHTML = pageNiveis;
     }
-        document.querySelector('.Perguntas').classList.add('escondido');
-        document.querySelector('.Niveis').classList.remove('escondido');
-    }
-   
+    document.querySelector('.Perguntas').classList.add('escondido');
+    document.querySelector('.Niveis').classList.remove('escondido');
+}
+
 
 function abrirNiveis(clicado) {
     clicado.classList.add('escondido');
@@ -143,8 +143,8 @@ function abrirNiveis(clicado) {
 function finalizarQuizz() {
     let verificaitems = document.querySelectorAll('.aberto');
     console.log(verificaitems.length);
-        
-        
+
+
     for (contador = 1; contador <= niveis; contador++) {
         tituloNivel = document.querySelector(`.aberto:nth-child(${contador}) .tituloNivel`).value;
         porcentagemNivel = document.querySelector(`.aberto:nth-child(${contador}) .porcentagemNivel`).value;
@@ -152,16 +152,17 @@ function finalizarQuizz() {
         descricaoNivel = document.querySelector(`.aberto:nth-child(${contador}) .descricaoNivel`).value;
 
         if (verificaitems.length === (Number(qtdPerguntas) + Number(niveis)) &&
-            tituloNivel.length > 9 && 
-            (porcentagemNivel>=0 && porcentagemNivel<101) && 
+            tituloNivel.length > 9 &&
+            (porcentagemNivel >= 0 && porcentagemNivel < 101) &&
             (urlNivel.startsWith("http://") || urlNivel.startsWith("https://")) &&
-            descricaoNivel.length > 29) { 
-            
-        }else {   
-         return(alert('Por favor, preencha os dados corretamente.'));
-        }    }
-        document.querySelector('.Niveis').classList.add('escondido');
-        document.querySelector('.Finalizacao').classList.remove('escondido');
+            descricaoNivel.length > 29) {
+
+        } else {
+            return (alert('Por favor, preencha os dados corretamente.'));
+        }
+    }
+    document.querySelector('.Niveis').classList.add('escondido');
+    document.querySelector('.Finalizacao').classList.remove('escondido');
 
 }
 
@@ -402,7 +403,10 @@ function removerPerguntas() {
     }
 
     remover = tela2.querySelector(".resultado");
-    tela2.removeChild(remover);
+    if (tela2.querySelector(".resultado") != null) {
+        tela2.removeChild(remover);
+    }
+
 
 }
 
@@ -434,6 +438,7 @@ function criarquizz() {
 }
 function returnHome() {
     tela2.style.display = "none";
+    removerPerguntas();
     escondeTela2();
     escondeTela3();
     let mostrar1 = document.querySelector('.quizzlocal');
@@ -449,13 +454,13 @@ function returnHome() {
 const objetoQuizz = {};
 
 function criarObjetoquizz() {
-    objetoQuizz =  {
+    objetoQuizz = {
         title: document.querySelector('.titulo').value,
         image: document.querySelector('.imagem').value,
         questions: [{
             title: document.querySelector('.input.pergunta').value,
             color: document.querySelector('.input.fundo').value,
-            answers:[]
+            answers: []
         }
         ],
         levels: []
@@ -473,20 +478,21 @@ function criarObjetoquizz() {
                 image: document.querySelectorAll('.input.urlimagem')[i].value, //1
                 isCorrectAnswer: true
             }, {
-                text : document.querySelectorAll('.input.pergunta')[1].value,  //2
-                image : document.querySelectorAll('.input.urlimagemIncorreta')[0].value, //2
-                isCorrectAnswer : false
+                text: document.querySelectorAll('.input.pergunta')[1].value,  //2
+                image: document.querySelectorAll('.input.urlimagemIncorreta')[0].value, //2
+                isCorrectAnswer: false
             }]
         }
         if (document.querySelectorAll('.input.pergunta')[2].value !== '') {
-        Quizz.questions[i].answers[2].text  = document.querySelectorAll('.input.pergunta')[2].value   //3
-        Quizz.questions[i].answers[2].image = document.querySelectorAll('.input.urlimagemIncorreta')[1].value   //3
-        Quizz.questions[i].answers[2].isCorrectAnswer = false;}
+            Quizz.questions[i].answers[2].text = document.querySelectorAll('.input.pergunta')[2].value   //3
+            Quizz.questions[i].answers[2].image = document.querySelectorAll('.input.urlimagemIncorreta')[1].value   //3
+            Quizz.questions[i].answers[2].isCorrectAnswer = false;
+        }
         if (document.querySelectorAll('.input.pergunta')[3].value !== '') {
-            
-        Quizz.questions[i].answers[3].text  = document.querySelectorAll('.input.pergunta')[3].value  //4
-        Quizz.questions[i].answers[3].image = document.querySelectorAll('.input.urlimagemIncorreta')[2].value  //4
+
+            Quizz.questions[i].answers[3].text = document.querySelectorAll('.input.pergunta')[3].value  //4
+            Quizz.questions[i].answers[3].image = document.querySelectorAll('.input.urlimagemIncorreta')[2].value  //4
             Quizz.questions[i].answers[3].isCorrectAnswer = false;
-    }
+        }
     }
 }
