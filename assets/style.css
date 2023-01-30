@@ -302,7 +302,8 @@ ion-button ion-icon {
     margin-right: 18px;
 }
 
-.Perguntas .urlimagemIncorreta,.Perguntas .urlimagemIncorreta1 {
+.Perguntas .urlimagemIncorreta,
+.Perguntas .urlimagemIncorreta1 {
     margin-bottom: 30px;
 }
 
@@ -314,7 +315,7 @@ ion-button ion-icon {
     height: 177px;
 }
 
-.tela3 .whitebtn{
+.tela3 .whitebtn {
     background: none;
     color: #818181;
     margin-top: -85px;
@@ -324,6 +325,28 @@ ion-button ion-icon {
 .escondido,
 .Perguntas .escondido {
     display: none;
+}
+
+.Finalizacao .imagemQuizz {
+    width: 500px;
+    height: 266px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.62%, rgba(0, 0, 0, 0.8) 100%), url("https://img.freepik.com/fotos-gratis/lindo-retrato-de-cachorro_23-2149218450.jpg?w=2000");
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: 23px 23px
+}
+
+.Finalizacao .tituloQuizz {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 27px;
+    color: #FFFFFF;
 }
 
 
